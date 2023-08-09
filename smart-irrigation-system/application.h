@@ -9,8 +9,11 @@
 #ifndef APPLICATION_H_
 #define APPLICATION_H_
 
-#include "MCAL_Layer/GPIO/gpio_hal.h"
+#include "MCAL/GPIO/gpio_hal.h"
+#include "MCAL/ADC/hal_adc.h"
+#include "ECU_Layer/LED/ecu_led.h"
+#include "MCAL/UART/hal_uart.h"
 
-
+void APP_Init(void);
 
 #endif /* APPLICATION_H_ */

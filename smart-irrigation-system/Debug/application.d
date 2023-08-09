@@ -1,5 +1,5 @@
-main.d main.o: .././main.c .././application.h .././MCAL/GPIO/gpio_hal.h \
- .././MCAL/GPIO/../../LIB/std_types.h \
+application.d application.o: .././application.c .././application.h \
+ .././MCAL/GPIO/gpio_hal.h .././MCAL/GPIO/../../LIB/std_types.h \
  .././MCAL/GPIO/../../LIB/std_libraries.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \

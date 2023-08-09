@@ -33,17 +33,23 @@ LINKER_SCRIPT_DEP:=
 
 # Every subdirectory with source files must be described here
 SUBDIRS :=  \
-../MCAL_Layer \
+../ECU_Layer/LED \
+../MCAL \
 ../ECU_Layer \
 ../LIB \
-../MCAL_Layer/GPIO \
-../APP
+../MCAL/GPIO \
+../MCAL/ADC \
+../MCAL/UART
 
 
 # Add inputs and outputs from these tool invocations to the build variables 
 C_SRCS +=  \
-../main.c \
-../MCAL_Layer/GPIO/gpio_hal.c
+../ECU_Layer/LED/ecu_led.c \
+../ECU_Layer/LED/ecu_led_cfg1.c \
+../application.c \
+../MCAL/ADC/hal_adc.c \
+../MCAL/GPIO/gpio_hal.c \
+../MCAL/UART/haL_uart.c
 
 
 PREPROCESSING_SRCS += 
@@ -53,20 +59,36 @@ ASM_SRCS +=
 
 
 OBJS +=  \
-main.o \
-MCAL_Layer/GPIO/gpio_hal.o
+ECU_Layer/LED/ecu_led.o \
+ECU_Layer/LED/ecu_led_cfg1.o \
+application.o \
+MCAL/ADC/hal_adc.o \
+MCAL/GPIO/gpio_hal.o \
+MCAL/UART/haL_uart.o
 
 OBJS_AS_ARGS +=  \
-main.o \
-MCAL_Layer/GPIO/gpio_hal.o
+ECU_Layer/LED/ecu_led.o \
+ECU_Layer/LED/ecu_led_cfg1.o \
+application.o \
+MCAL/ADC/hal_adc.o \
+MCAL/GPIO/gpio_hal.o \
+MCAL/UART/haL_uart.o
 
 C_DEPS +=  \
-main.d \
-MCAL_Layer/GPIO/gpio_hal.d
+ECU_Layer/LED/ecu_led.d \
+ECU_Layer/LED/ecu_led_cfg1.d \
+application.d \
+MCAL/ADC/hal_adc.d \
+MCAL/GPIO/gpio_hal.d \
+MCAL/UART/haL_uart.d
 
 C_DEPS_AS_ARGS +=  \
-main.d \
-MCAL_Layer/GPIO/gpio_hal.d
+ECU_Layer/LED/ecu_led.d \
+ECU_Layer/LED/ecu_led_cfg1.d \
+application.d \
+MCAL/ADC/hal_adc.d \
+MCAL/GPIO/gpio_hal.d \
+MCAL/UART/haL_uart.d
 
 OUTPUT_FILE_PATH +=smart-irrigation-system.elf
 
@@ -82,14 +104,42 @@ LINKER_SCRIPT_DEP+=
 
 
 # AVR32/GNU C Compiler
-./main.o: .././main.c
+ECU_Layer/LED/ecu_led.o: ../ECU_Layer/LED/ecu_led.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
 	@echo Finished building: $<
 	
 
-MCAL_Layer/GPIO/gpio_hal.o: ../MCAL_Layer/GPIO/gpio_hal.c
+ECU_Layer/LED/ecu_led_cfg1.o: ../ECU_Layer/LED/ecu_led_cfg1.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+./application.o: .././application.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/ADC/hal_adc.o: ../MCAL/ADC/hal_adc.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/GPIO/gpio_hal.o: ../MCAL/GPIO/gpio_hal.c
+	@echo Building file: $<
+	@echo Invoking: AVR/GNU C Compiler : 5.4.0
+	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 
+	@echo Finished building: $<
+	
+
+MCAL/UART/haL_uart.o: ../MCAL/UART/haL_uart.c
 	@echo Building file: $<
 	@echo Invoking: AVR/GNU C Compiler : 5.4.0
 	$(QUOTE)C:\Program Files (x86)\Atmel\Studio\7.0\toolchain\avr8\avr8-gnu-toolchain\bin\avr-gcc.exe$(QUOTE)  -x c -funsigned-char -funsigned-bitfields -DDEBUG  -I"C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\include"  -Og -ffunction-sections -fdata-sections -fpack-struct -fshort-enums -g2 -Wall -mmcu=atmega328p -B "C:\Program Files (x86)\Atmel\Studio\7.0\Packs\atmel\ATmega_DFP\1.7.374\gcc\dev\atmega328p" -c -std=gnu99 -MD -MP -MF "$(@:%.o=%.d)" -MT"$(@:%.o=%.d)" -MT"$(@:%.o=%.o)"   -o "$@" "$<" 

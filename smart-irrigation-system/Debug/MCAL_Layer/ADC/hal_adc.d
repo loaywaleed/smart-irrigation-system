@@ -1,10 +1,12 @@
-main.d main.o: .././main.c .././application.h .././MCAL/GPIO/gpio_hal.h \
- .././MCAL/GPIO/../../LIB/std_types.h \
- .././MCAL/GPIO/../../LIB/std_libraries.h \
+MCAL_Layer/ADC/hal_adc.d MCAL_Layer/ADC/hal_adc.o: \
+ ../MCAL_Layer/ADC/hal_adc.c ../MCAL_Layer/ADC/hal_adc.h \
+ ../MCAL_Layer/ADC/../GPIO/gpio_hal.h \
+ ../MCAL_Layer/ADC/../GPIO/../../LIB/std_types.h \
+ ../MCAL_Layer/ADC/../GPIO/../../LIB/std_libraries.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h \
- .././MCAL/GPIO/../../LIB/compiler.h \
- .././MCAL/GPIO/../../LIB/device_config.h \
+ ../MCAL_Layer/ADC/../GPIO/../../LIB/compiler.h \
+ ../MCAL_Layer/ADC/../GPIO/../../LIB/device_config.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\sfr_defs.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\inttypes.h \
@@ -19,27 +21,23 @@ main.d main.o: .././main.c .././application.h .././MCAL/GPIO/gpio_hal.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\delay_basic.h \
  c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h \
- .././MCAL/GPIO/../../LIB/bit_math.h .././MCAL/ADC/hal_adc.h \
- .././MCAL/ADC/../GPIO/gpio_hal.h .././ECU_Layer/LED/ecu_led.h \
- .././ECU_Layer/LED/../../MCAL/GPIO/gpio_hal.h .././MCAL/UART/hal_uart.h \
- .././MCAL/UART/../GPIO/gpio_hal.h \
- c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\setbaud.h
+ ../MCAL_Layer/ADC/../GPIO/../../LIB/bit_math.h
 
-.././application.h:
+../MCAL_Layer/ADC/hal_adc.h:
 
-.././MCAL/GPIO/gpio_hal.h:
+../MCAL_Layer/ADC/../GPIO/gpio_hal.h:
 
-.././MCAL/GPIO/../../LIB/std_types.h:
+../MCAL_Layer/ADC/../GPIO/../../LIB/std_types.h:
 
-.././MCAL/GPIO/../../LIB/std_libraries.h:
+../MCAL_Layer/ADC/../GPIO/../../LIB/std_libraries.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\stdlib.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\lib\gcc\avr\5.4.0\include\stddef.h:
 
-.././MCAL/GPIO/../../LIB/compiler.h:
+../MCAL_Layer/ADC/../GPIO/../../LIB/compiler.h:
 
-.././MCAL/GPIO/../../LIB/device_config.h:
+../MCAL_Layer/ADC/../GPIO/../../LIB/device_config.h:
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\avr\io.h:
 
@@ -69,18 +67,4 @@ c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\
 
 c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\math.h:
 
-.././MCAL/GPIO/../../LIB/bit_math.h:
-
-.././MCAL/ADC/hal_adc.h:
-
-.././MCAL/ADC/../GPIO/gpio_hal.h:
-
-.././ECU_Layer/LED/ecu_led.h:
-
-.././ECU_Layer/LED/../../MCAL/GPIO/gpio_hal.h:
-
-.././MCAL/UART/hal_uart.h:
-
-.././MCAL/UART/../GPIO/gpio_hal.h:
-
-c:\program\ files\ (x86)\atmel\studio\7.0\toolchain\avr8\avr8-gnu-toolchain\avr\include\util\setbaud.h:
+../MCAL_Layer/ADC/../GPIO/../../LIB/bit_math.h:
